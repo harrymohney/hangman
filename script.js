@@ -73,7 +73,7 @@ const alpha = Array.from(Array(26)).map((e, i) => i + 65)
 
 		else if (wordTemplate.join('') === word) {
 			document.querySelector('#alphabet').classList.add('hide')
-			alert(`Ты угадал, это ${word}`)
+			alert(`Your word is ${word}`)
 		}
 		gsap.to(curnum, .2, {
 			force3D: true,
