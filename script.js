@@ -22,21 +22,21 @@ const alpha = Array.from(Array(26)).map((e, i) => i + 65)
 	}
 
 	const createAlphaBetButtons = () => {
-		const alphabetWrapper = document.querySelector('#alphabet')
-		alphabetWrapper.innerHTML = ""
-		alphabet.forEach((letter) => {
-			const button = `<button id=${letter}>${letter}</button>`
-			alphabetWrapper.innerHTML += button
-		})
-		const buttons = document.querySelectorAll('#alphabet button')
-		for (btn of buttons) {
-			btn.addEventListener('click', (event) => {
-				event.preventDefault()
-				checkLetter(event.target.id)
-				event.target.classList.add('hide')
-			})
-		}
-	}
+    const alphabetWrapper = document.querySelector('#alphabet')
+    alphabetWrapper.innerHTML = ""
+    alphabet.forEach((letter) => {
+        const button = document.createElement('button')
+        button.id = letter
+        button.textContent = letter
+        button.addEventListener('click', (event) => {
+            event.preventDefault()
+            checkLetter(event.target.id)
+            event.target.classList.add('hide')
+        })
+        alphabetWrapper.appendChild(button)
+    })
+}
+
 	const createWordTemplate = () => {
 		wordTemplate.length = word.length
 		wordTemplate.fill(null)
